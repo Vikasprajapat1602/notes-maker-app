@@ -30,6 +30,7 @@ function Home() {
             content,
             category,
             createdAt: new Date().toLocaleString(),
+            pinned: false,
         };
 
         setNotes((prevNotes) => [newNote, ...prevNotes]);
@@ -38,6 +39,15 @@ function Home() {
     const deleteNote = (id) => {
         setNotes((prevNotes) =>
             prevNotes.filter((note) => note.id !== id)
+        );
+    };
+    const togglePin = (id) => {
+        setNotes((prevNotes) =>
+            prevNotes.map((note) =>
+                note.id === id
+                    ? { ...note, pinned: !note.pinned }
+                    : note
+            )
         );
     };
 
@@ -60,11 +70,13 @@ function Home() {
     };
 
 
-    const filteredNotes = notes.filter(
-        (note) =>
-            note.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            note.content.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+    const filteredNotes = notes
+        .filter(
+            (note) =>
+                note.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                note.content.toLowerCase().includes(searchTerm.toLowerCase())
+        )
+        .sort((a, b) => b.pinned - a.pinned);
 
     return (
         <div className="min-h-screen bg-black text-white">
@@ -95,6 +107,7 @@ function Home() {
                                 deleteNote={deleteNote}
                                 setEditNote={setEditNote}
                                 setFormData={setFormData}
+                                togglePin={togglePin}
                             />
                         ))
                     ) : (

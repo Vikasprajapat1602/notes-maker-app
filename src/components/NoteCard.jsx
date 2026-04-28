@@ -3,6 +3,7 @@ function NoteCard({
   deleteNote,
   setEditNote,
   setFormData,
+  togglePin,
 }) {
   const handleEdit = () => {
     setEditNote(note);
@@ -16,9 +17,22 @@ function NoteCard({
 
   return (
     <div className="bg-gray-900 border border-gray-800 rounded-xl p-5 shadow-lg">
-      <h3 className="text-xl font-semibold text-white mb-2">
-        {note.title}
-      </h3>
+      <div className="flex justify-between items-start mb-2">
+        <h3 className="text-xl font-semibold text-white">
+          {note.title}
+        </h3>
+
+        <button
+          onClick={() => togglePin(note.id)}
+          className={`text-sm px-3 py-1 rounded-lg ${
+            note.pinned
+              ? "bg-yellow-500 text-black"
+              : "bg-gray-700 text-white"
+          }`}
+        >
+          {note.pinned ? "Pinned" : "Pin"}
+        </button>
+      </div>
 
       <p className="text-gray-300 mb-2 whitespace-pre-wrap">
         {note.content}
