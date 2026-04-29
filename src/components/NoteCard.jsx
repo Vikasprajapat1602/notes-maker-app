@@ -64,21 +64,21 @@ Pinned: ${note.pinned ? "Yes" : "No"}`;
       <div className="grid grid-cols-3 gap-3">
         <button
           onClick={handleEdit}
-          className="bg-blue-600 hover:bg-blue-500 text-white py-2 rounded-lg transition"
+          className="bg-gray-600 hover:bg-gray-500 text-white py-2 rounded-lg transition"
         >
           Edit
         </button>
 
         <button
           onClick={() => deleteNote(note.id)}
-          className="bg-red-600 hover:bg-red-500 text-white py-2 rounded-lg transition"
+          className="bg-rose-600 hover:bg-rose-500 text-white py-2 rounded-lg transition"
         >
           Delete
         </button>
 
         <button
           onClick={exportSingleNote}
-          className="bg-green-600 hover:bg-green-500 text-white py-2 rounded-lg transition"
+          className="bg-cyan-600 hover:bg-cyan-500 text-white py-2 rounded-lg transition"
         >
           Export
         </button>

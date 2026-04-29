@@ -38,6 +38,13 @@ function Home() {
         );
     }, [trashNotes]);
 
+    useEffect(() => {
+        localStorage.setItem(
+            "notes",
+            JSON.stringify(notes)
+        );
+    }, [notes]);
+
     const addNote = (title, content, category) => {
         const newNote = {
             id: Date.now(),

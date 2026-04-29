@@ -33,7 +33,7 @@ Pinned: ${note.pinned ? "Yes" : "No"}
     <div className="max-w-2xl mx-auto mb-6">
       <button
         onClick={exportToTXT}
-        className="w-full bg-green-600 hover:bg-green-500 text-white py-3 rounded-lg font-medium transition"
+        className="w-full bg-cyan-600 hover:bg-cyan-500 text-white py-3 rounded-lg font-medium transition"
       >
         Export All Notes (.txt)
       </button>
